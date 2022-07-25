@@ -35,6 +35,7 @@ const init = function () {
 };
 init();
 
+// switching to the other player
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
@@ -66,12 +67,14 @@ btnRoll.addEventListener('click', function () {
   }
 });
 
+// hold button functionality
 btnHold.addEventListener('click', function () {
+  
+  // checks if playing so after some player won, buttons will be dissable
   if (playing) {
     // 1. Add current score to active player's score
     scores[activePlayer] += currentScore;
-    // scores[1] = scores[1] + currentScore
-
+   
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
 
